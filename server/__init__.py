@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from server.extensions import socketio, cors, db
+from server.extensions import socketio, cors, db, migrate
 from server.api.init_api import init_api
 
 MYSQL_USER = os.environ.get('MYSQL_USER')
@@ -18,5 +18,6 @@ def create_app():
     socketio.init_app(app, cors_allowed_origins='*')
     cors.init_app(app)
     db.init_app(app)
+    migrate.init_app(app)
 
     return app
