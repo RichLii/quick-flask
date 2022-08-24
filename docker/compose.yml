@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  qf:
+    image: richli0623/quick-flask
+    tty: true
+    stdin_open: true
+    ports:
+      - 8000:8000
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
+      - ENV_MODE=debug
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - qf-mysql-data:/var/lib/mysql
+    ports:
+      - 3307:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=flask
+    command: mysqld --character-set-server=utf8
+
+volumes:
+  qf-mysql-data:
