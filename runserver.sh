@@ -1,8 +1,7 @@
 #!/bin/bash
 # Mode debug or produce
 # !!! Mode produce can only run on Linux Base OS !!!
-MODE="${ENV_MODE}"
-echo $MODE
+MODE="${ENV_MODE:=debug}"
 export FLASK_DEBUG=true
 export FLASK_APP=server
 DIRNAME="$(dirname -- "$(readlink -f "${BASH_SOURCE}")")"
@@ -15,12 +14,12 @@ if [ -n "$MODE" ]
       flask run --host 0.0.0.0 --port=8000
     elif [ $MODE = 'produce' ]
     then
-      echo 'produce server running...'
+      echo 'debug server running...'
       gunicorn --worker-class eventlet -w 1 -b 0.0.0.0:8000 "server.wsgi:app"
     else
     echo 'Mode must be debug or produce'
   fi
   else
-    echo 'debug server running...'
+    echo 'default debug server running...'
     flask run --host 0.0.0.0 --port=8000
 fi
