@@ -1,7 +1,8 @@
 #!/bin/bash
 # Mode debug or produce
 # !!! Mode produce can only run on Linux Base OS !!!
-MODE="${ENV_MODE:='debug'}"
+MODE="${ENV_MODE:=debug}"
+echo $MODE
 export FLASK_DEBUG=true
 export FLASK_APP=server
 DIRNAME="$(dirname -- "$(readlink -f "${BASH_SOURCE}")")"
