@@ -1,7 +1,7 @@
 #!/bin/bash
-# Mode
+# Mode debug or produce
+# !!! Mode produce can only run on Linux Base OS !!!
 MODE='debug'
-# MODE='produce'
 export FLASK_DEBUG=true
 export FLASK_APP=server
 DIRNAME="$(dirname -- "$(readlink -f "${BASH_SOURCE}")")"
