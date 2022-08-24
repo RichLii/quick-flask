@@ -2,7 +2,6 @@
 # Mode debug or produce
 # !!! Mode produce can only run on Linux Base OS !!!
 MODE="${ENV_MODE:=debug}"
-echo $MODE
 export FLASK_DEBUG=true
 export FLASK_APP=server
 DIRNAME="$(dirname -- "$(readlink -f "${BASH_SOURCE}")")"
@@ -19,5 +18,5 @@ if [ -n "$MODE" ]
     echo 'Mode must be debug or produce'
   fi
   else
-    echo 'Mode must be debug or produce'
+    echo 'Mode must not be null'
 fi
