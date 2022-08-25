@@ -2,11 +2,13 @@ version: "3.9"
 
 services:
   qf:
-    image: richli0623/quick-flask
+    image: richli0623/quick-flask2
     tty: true
     stdin_open: true
     ports:
       - 8000:8000
+    volumes:
+      - ./server:/home
     environment:
       - MYSQL_USER=root
       - MYSQL_PASSWORD=password
