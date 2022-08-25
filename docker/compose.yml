@@ -7,8 +7,6 @@ services:
     stdin_open: true
     ports:
       - 8000:8000
-    volumes:
-      - ./server:/home
     environment:
       - MYSQL_USER=root
       - MYSQL_PASSWORD=password
