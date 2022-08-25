@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   qf:
-    image: richli0623/quick-flask2
+    image: richli0623/quick-flask
     tty: true
     stdin_open: true
     ports:
